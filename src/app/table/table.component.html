@@ -1,0 +1,32 @@
+
+<div>
+  <input type="text" [(ngModel)]="filterStr">
+</div>
+
+
+<div class="container">
+  <table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let sdata of data | search: filterStr">
+    <td>{{sdata.firstName}}</td>
+    <td>{{sdata.lastName}}</td> 
+    <td>{{sdata.age}}</td>
+    <td><button (click)="update(sdata.id)">EDIT</button></td>
+    <td><button (click)="remove(sdata.id)">DEL</button></td>
+  </tr>
+
+  <tr>
+    <td><input type="text" [(ngModel)]="fn"></td>
+    <td><input type="text" [(ngModel)]="ln"></td> 
+    <td><input type="text" [(ngModel)]="age"></td>
+    <td><button (click)="add()">ADD</button></td>
+    <td><button (click)="clear()">CLEAR</button></td>
+  </tr>
+</table>
+</div>
